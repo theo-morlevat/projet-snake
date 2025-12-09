@@ -3,6 +3,7 @@ Fichier README
 Nom du projet : Projet Snake / Analyse de fichiers SAM 
 
 Autheur: Charlotte Pariente et Théo Morlevat 
+mettre les mails
 
 Description :  
 
