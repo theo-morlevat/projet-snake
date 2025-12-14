@@ -49,7 +49,7 @@ Le système repose sur deux scripts, un script bash et un script python, situés
     ├── experience_1.sam<br/>
     └── (Fichiers de sortie générés ici)<br/>
 
-**Principe fondamental** : Les scripts restent dans `bio-info/` et ne sont jamais copiés de façon permanente dans les dossiers de données. Une copie temporaire du script python est créée pendant l'exécution dans le fichier contenant le fichier sam. La localisation d'exécution des commandes est déplacé dans le même fichier afin de lancer le script python copié sur les données, puis il supprimée à la fin de l'exécution.
+**Principe fondamental** : Les scripts restent dans `bio-info/` et ne sont jamais copiés de façon permanente dans les dossiers de données. Une copie temporaire du script python est créée pendant l'exécution dans le fichier contenant le fichier sam. La localisation d'exécution des commandes est déplacé dans le même fichier afin de lancer le script python copié sur les données, puis le script python sera supprimé à la fin de l'exécution.
 
 ---
 
