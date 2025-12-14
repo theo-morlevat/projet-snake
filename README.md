@@ -172,6 +172,7 @@ Une fois le script lancé, vous serez invité à choisir le type d'analyse via u
 
 ### Exemple d'interaction
 
+```
 === Analyseur de Fichiers SAM ===
 1) Analyse COMPLÈTE
 2) Analyse CIGAR
@@ -182,6 +183,7 @@ Choisissez une option [1-4] : 1
 Analyse en cours... (exp_1/mon_alignement.sam)
 ✓ Analyse terminée avec succès
 Fichiers générés : summary.txt, unmapped.fasta, partiallyMapped.fasta
+```
 
  ---
 
