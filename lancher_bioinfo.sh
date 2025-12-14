@@ -36,19 +36,26 @@ else
 fi
 
 
-echo -e "===  SAM File Analyseur ===\n1) Complete Analyse\n2) CIGAR Analyse\n3) MAPPING Analyse\n4) FASTA Extraction\nChoose an option [1-4]\nAnswer in the console" # affiche un message demandant le type d'analyse à réaliser
-read typeofanalyse # l'utilisateur entre la valeur dans la console, la valeur est stocké dans la variable typeofanalyse
+echo "This script could work on all data or on specifics needs. You want to work on : 'full', 'cigar', 'mapping', 'fasta'" # affiche un message demandant l'analyse a réaliser
+read param # l'utilisateur entre la valeur dans la console, la valeur est stocké dans la variable param
 
-
-if [ $typeofanalyse == 1 ] || [ $typeofanalyse == 2 ] || [ $typeofanalyse == 3 ] || [ $typeofanalyse == 4 ]; # Si la variable correspond aux paramètres attendus
+if [[ $param == "full" ]] || [[ $param == "cigar" ]] || [[ $param == "mapping" ]] || [[ $param ==  "fasta" ]]; # on verifie que les données entrées sont correct
 then
-          echo "Analysis in progress..." # on affiche que l'analyse est en cours
-          python3 analyse_sam2.py $2 $typeofanalyse # on execute le script python 
-          echo -e "Analysis successfully completed\nFiles have been generated in the selected path." # Une fois l'analyse fini on affiche un message de validation
-else
-            echo "Error: you didn't write well parameters" # si les paramètres ne sont pas correct on affiche un message d'erreur
+          echo "You want to work on : 'mapped-reads', 'partially-mapped-reads', 'unmapped-reads', 'all'? " # on demande sur quel type de reads on travaille
+          read mapped # on stock la réponse dans mapped
+          if [[ $mapped == "mapped-reads" ]] || [[ $mapped == "partially-mapped-reads" ]] || [[ $mapped == "unmapped-reads" ]] || [[ $mapped ==  "all" ]];# on verifie que les données entrées sont correct
+          then
+            param+="$mapped" # on ajoute l'information dans param
+            echo "Analysis in progress..." # on affiche que l'analyse est en cours
+            python3 analyse_sam2.py $2 $param
+            echo -e "Analysis successfully completed\nFiles have been generated in the selected path." # Une fois l'analyse fini on affiche un message de validation
+          else
+            echo "Error: you didn't write well parameters" # sinon on affiche un message d'erreur
             exit 1
+          fi
+else
+          echo "Error: you didn't write well parameters"
+          exit 1
 fi
-
 
 rm analyse_sam2.py # On supprime le script du dossier contenant les données.
