@@ -1,16 +1,16 @@
 clear #On commence par effacer la console
 
-if [ $1 == -help ] || [ $1 == -h ]; then  #option help, détaille le fonctionnement du script.
+if [ $1 == --help ] || [ $1 == -h ]; then  #option help, détaille le fonctionnement du script.
        echo -e " The Bash script will copy the pyhton script at the destination of the .sam file. Then ... "
        exit 1
 fi
 
-if [ $1 == -output ] || [ $1 == - ]; then  #option help, détaille le fonctionnement du script.
+if [ $1 == --output ] || [ $1 == -o ]; then  #option help, détaille le fonctionnement du script.
        echo -e " The Bash script will copy the pyhton script at the destination of the .sam file. Then ... "
        exit 1
 fi
 
-if [ $1 == -input ] || [ $1 == -i ]; then  #option help, détaille le fonctionnement du script.
+if [ $1 == --input ] || [ $1 == -i ]; then  #option help, détaille le fonctionnement du script.
        echo -e " The Bash script will copy the pyhton script at the destination of the .sam file. Then ... "
        exit 1
 fi
