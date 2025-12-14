@@ -10,8 +10,8 @@ Nom du projet : Projet Snake / Analyseur automatisé de fichiers SAM
 **Spécialisation** : Analyse de données de séquençage paired-end
 
 ## Contact :
-- theom1907@gmail.com
-- charlotte.pariente@gmail.com 
+- theo.morlevat@etu.umontpellier.fr
+- marie-charlotte.pariente@etu.umontpellier.fr
 
 ---
 
