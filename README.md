@@ -86,7 +86,9 @@ Le système repose sur deux scripts, un script bash et un script python, situés
 ### Téléchargement des scripts
 Télécharger le fichier Python analyse_sam.py et le fichier lanceur_bioinfo.sh à partir de git. 
 
-[Lien htpps du git ](https://github.com/theo-morlevat/projet-snake.git)
+```
+https://github.com/theo-morlevat/projet-snake.git
+```
 
 Il est recommandé de placer ces scripts dans un dossier (exemple : bio-info) dont vous connaissez le chemin.
 
