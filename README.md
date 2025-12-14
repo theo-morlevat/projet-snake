@@ -39,15 +39,15 @@ Le système repose sur deux scripts, un script bash et un script python, situés
 
 ### Arborescence type
 
-/racine/\\
-├── bio-info/                      # Dossier des scripts (Admin)\\
-│   ├── analyse_sam.py\\
-│   ├── lanceur_bioinfo.sh\\
-│   └── README.md\\
-│\\
-└── home/user/data/                # Dossier du biologiste (Utilisateur)\\
-    ├── experience_1.sam\\
-    └── (Fichiers de sortie générés ici)\\
+/racine/<br/>
+├── bio-info/                      # Dossier des scripts (Admin)<br/>
+│   ├── analyse_sam.py<br/>
+│   ├── lanceur_bioinfo.sh<br/>
+│   └── README.md<br/>
+│<br/>
+└── home/user/data/                # Dossier du biologiste (Utilisateur)<br/>
+    ├── experience_1.sam<br/>
+    └── (Fichiers de sortie générés ici)<br/>
 
 **Principe fondamental** : Les scripts restent dans `bio-info/` et ne sont jamais copiés de façon permanente dans les dossiers de données. Une copie temporaire du script python est créée pendant l'exécution dans le fichier contenant le fichier sam. La localisation d'exécution des commandes est déplacé dans le même fichier afin de lancer le script python copié sur les données, puis il supprimée à la fin de l'exécution.
 
