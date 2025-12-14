@@ -77,7 +77,7 @@ Le système repose sur deux scripts, un script bash et un script python, situés
 
 - **Taille de fichier** : Optimisé pour SAM < 2 GB (adaptation recommandée pour les fichiers plus volumineux)
 - **Encodage** : Suppose un encodage UTF-8 des fichiers SAM
-- **Format** : Attend un format SAM standard (avec en-têtes @HD, @SQ recommandés)
+- **Format** : Attend un format SAM standard (avec en-têtes @HD, @SQ recommandés, sans lignes vides)
 
 ---
 
@@ -115,8 +115,6 @@ chmod +x lanceur_bioinfo.sh
 |---------------------|----------------|---------------------------------------------------------------------------|
 | `<DOSSIER_DONNEES>` | Chemin         | Répertoire contenant vos fichiers de données (chemin absolu ou relatif)   |
 | `<FICHIER_SAM>`     | Nom de fichier | Nom du fichier `.sam` à analyser (doit être situé dans `DOSSIER_DONNEES`) |
-
-Faite attention le fichier sam `FICHIER_SAM` ne doit pas avoir de ligne vide, cela peut entraîner une erreur.
 
 ### Exemples concrets
 
@@ -233,7 +231,6 @@ chr2: 41,567 reads (3.57%)
 ---
  
 ## Fonctionnement du script
-## ⚙️ Fonctionnement technique
 
 ### Flux d'exécution du script Bash
 
