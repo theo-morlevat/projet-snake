@@ -128,11 +128,13 @@ chmod +x lancher_bioinfo.sh
 
 ### Paramètres en argument de lanceur_bioinfo.sh
 
+```
 -h ou –-help : paramètre expliquant commant utiliser le script et les paramètres possibles.
 
 -i ou –-input : paramètre explicitant quel données d'entrées il faut saisir et un exemple.
 
 -o ou --output : paramètre donnant les sortie attendues à la fin du script.
+```
 
  ---
 
@@ -173,16 +175,13 @@ Une fois le script lancé, vous serez invité à choisir le type d'analyse via u
 ### Exemple d'interaction
 
 ```
-=== Analyseur de Fichiers SAM ===
-1) Analyse COMPLÈTE
-2) Analyse CIGAR
-3) Analyse MAPPING
-4) Extraction FASTA
-Choisissez une option [1-4] : 1
-
-Analyse en cours... (exp_1/mon_alignement.sam)
-✓ Analyse terminée avec succès
-Fichiers générés : summary.txt, unmapped.fasta, partiallyMapped.fasta
+This script could work on all data or on specifics needs. You want to work on : 'full', 'cigar', 'mapping', 'fasta'
+full (donnée entrée dans la console)
+You want to work on : 'mapped-reads', 'partially-mapped-reads', 'unmapped-reads', 'all'
+all (donnée entrée dans la console)
+Analysis in progress...
+Analysis successfully completed
+Files have been generated in the selected path.
 ```
 
  ---
