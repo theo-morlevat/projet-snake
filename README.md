@@ -19,7 +19,7 @@ Nom du projet : Projet Snake / Analyseur automatisé de fichiers SAM
 
 Le projet Snake à pour objectif de permettre l’analyse d’un fichier SAM(Séquences Alignées Mappées) et d’obtenir les résultats en un résumé, dans un environnement de laboratoire. Il a été pensé de sorte à pouvoir travailler sur les dossiers biologiques (fichier SAM) à distance. Cela permet de stocker les scripts dans un dossier séparé des données évitant de polluer les données. Ce script se veut utilisable et compréhensible pour des biologistes.
 
-### caractéristiques
+### Caractéristiques
 - **Analyse complète** :        Statistiques globales, qualité de l'alignement, analyse des paires de lectures
 - **Parsing robuste** :         Décodage des champs CIGAR et FLAG conformes aux spécifications SAM officielles
 - **Extraction de séquences** : Génération automatique de fichiers FASTA pour les reads non mappés et partiellement alignés
