@@ -9,7 +9,7 @@ Nom du projet : Projet Snake / Analyseur automatisé de fichiers SAM
 **Établissement** : Faculté des Sciences - Université de Montpellier  
 **Spécialisation** : Analyse de données de séquençage paired-end
 
-## Contact par:
+## Contact :
 - theom1907@gmail.com
 - charlotte.pariente@gmail.com 
 
