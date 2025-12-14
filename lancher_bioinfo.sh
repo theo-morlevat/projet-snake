@@ -46,7 +46,7 @@ then
           if [[ $mapped == "mapped-reads" ]] || [[ $mapped == "partially-mapped-reads" ]] || [[ $mapped == "unmapped-reads" ]] || [[ $mapped ==  "all" ]];# on verifie que les données entrées sont correct
           then
             param+="$mapped" # on ajoute l'information dans param
-            echo "Analysis in progress..." # on affiche que l'analyse est en cours
+            echo "\nAnalysis in progress..." # on affiche que l'analyse est en cours
             python3 analyse_sam2.py $2 $param
             echo -e "Analysis successfully completed\nFiles have been generated in the selected path." # Une fois l'analyse fini on affiche un message de validation
           else
