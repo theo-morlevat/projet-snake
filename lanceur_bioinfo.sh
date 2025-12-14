@@ -1,12 +1,22 @@
 clear #On commence par effacer la console
 
-cp snake.py "$1"snake2.py #Le script .py se situe dans le même fichier que le script actuel. On copie le script .py dans dans le dossier où se situe le fichier sam. Le script est copié sous un autre nom si le fichier sam se trouve dans le même dossier pour éviter de supprimer le fichier .py d'origine.
-cd "$1" #On déplace ensuite l'endroit d'exécution des actions dans le dossier contenant le fichier .sam. Ainsi on pourra exploiter le fichier avec le script .py.
-
-if [ $1 == -help ]; then  #option help, détaille le fonctionnement du script.
+if [ $1 == -help ] || [ $1 == -h ]; then  #option help, détaille le fonctionnement du script.
        echo -e " The Bash script will copy the pyhton script at the destination of the .sam file. Then ... "
        exit 1
 fi
+
+if [ $1 == -output ] || [ $1 == - ]; then  #option help, détaille le fonctionnement du script.
+       echo -e " The Bash script will copy the pyhton script at the destination of the .sam file. Then ... "
+       exit 1
+fi
+
+if [ $1 == -input ] || [ $1 == -i ]; then  #option help, détaille le fonctionnement du script.
+       echo -e " The Bash script will copy the pyhton script at the destination of the .sam file. Then ... "
+       exit 1
+fi
+
+cp analyse_sam.py "$1"analyse_sam2.py # Le script .py se situe dans le même fichier que le script actuel. On copie le script .py dans dans le dossier où se situe le fichier sam. Le script est copié sous un autre nom si le fichier sam se trouve dans le même dossier pour éviter de supprimer le fichier .py d'origine.
+cd "$1" #On déplace ensuite l'endroit d'exécution des actions dans le dossier contenant le fichier .sam. Ainsi on pourra exploiter le fichier avec le script .py.
 
 error="" #On initialise une variable vide afin de contenir les différents messages d'erreurs.
 last-extension="${2##*.}" #On stock la dernière extension du nom du fichier dans la variable last-extension
@@ -26,10 +36,19 @@ fi
 
 
 #read = lire.clavier
-echo "This script could work on all data or on specifics needs. Do you want to work on all datas? (yes or no)"
-read all
+echo "=== Analyseur de Fichiers SAM ===
+1) Analyse COMPLÈTE
+2) Analyse CIGAR
+3) Analyse MAPPING
+4) Extraction FASTA
+Choisissez une option [1-4] : 1
 
-if [ $all == "yes" ]
+Analyse en cours... (exp_1/mon_alignement.sam)
+✓ Analyse terminée avec succès
+Fichiers générés : summary.txt, unmapped.fasta, partiallyMapped.fasta"
+read answer 
+
+if [ $all == "1" ] || [ 
 then
           python3 script2.py $2
 else
