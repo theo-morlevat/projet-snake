@@ -35,14 +35,14 @@ Le système repose sur deux scripts, un script bash et un script python, situés
 | Composant            | Type     | Rôle                                                                                 |
 |----------------------|----------|--------------------------------------------------------------------------------------|
 | `analyse_sam.py`     | Python 3 | Moteur d'analyse : calculs statistiques, parsing CIGAR/FLAG, génération des rapports |
-| `lanceur_bioinfo.sh` | Bash     | Interface utilisateur : interaction, gestion des permissions, exécution sécurisée    |
+| `lancher_bioinfo.sh` | Bash     | Interface utilisateur : interaction, gestion des permissions, exécution sécurisée    |
 
 ### Arborescence type
 
 /racine/<br/>
 ├── bio-info/                      # Dossier des scripts (Admin)<br/>
 │   ├── analyse_sam.py<br/>
-│   ├── lanceur_bioinfo.sh<br/>
+│   ├── lancher_bioinfo.sh<br/>
 │   └── README.md<br/>
 │<br/>
 └── home/user/data/                # Dossier du biologiste (Utilisateur)<br/>
@@ -95,7 +95,7 @@ Il est recommandé de placer ces scripts dans un dossier (exemple : bio-info) do
 #### Rendre le script Bash exécutable
 
 ```bash
-chmod +x lanceur_bioinfo.sh
+chmod +x lancher_bioinfo.sh
 ```
 
 **Note** : Le script Python n'a pas besoin d'être exécutable, il est appelé via `python3` par le script Bash.
@@ -107,7 +107,7 @@ chmod +x lanceur_bioinfo.sh
 ### Syntaxe
 
 ```bash
-/chemin/vers/bio-info/lanceur_bioinfo.sh <DOSSIER_DONNEES> <FICHIER_SAM>
+/chemin/vers/bio-info/lancher_bioinfo.sh <DOSSIER_DONNEES> <FICHIER_SAM>
 ```
 ### Arguments
 
