@@ -15,7 +15,7 @@ if [ $1 == --output ] || [ $1 == -o ]; then  #option output, donne une explicati
        exit 1
 fi
 
-cp analyse_sam.py "$1"analyse_sam2.py #Le script .py se situe dans le même fichier que le script actuel. On copie le script .py dans dans le dossier où se situe le fichier sam. Le script est copié sous un autre nom si le fichier sam se trouve dans le même dossier pour éviter de supprimer le fichier .py d'origine.
+cp analyse_sam.py "$1"/analyse_sam2.py #Le script .py se situe dans le même fichier que le script actuel. On copie le script .py dans dans le dossier où se situe le fichier sam. Le script est copié sous un autre nom si le fichier sam se trouve dans le même dossier pour éviter de supprimer le fichier .py d'origine.
 cd "$1" #On déplace ensuite l'endroit d'exécution des actions dans le dossier contenant le fichier .sam. Ainsi on pourra exploiter le fichier avec le script .py.
 
 
