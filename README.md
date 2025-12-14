@@ -194,8 +194,7 @@ Ce script  la possibilité de créer 4 fichiers différents.
 
 | Fichier                 | Type  | Généré par                         | Description                                                                  |
 |-------------------------|-------|------------------------------------|------------------------------------------------------------------------------|
-| `summary.txt`           | Texte | Analyse COMPLÈTE                   | Rapport synthétique contenant : statistiques globales, qualité d'alignement, |
-|                         |       |                                    |  analyse des paires, distribution par chromosome, contenu GC.                |
+| `summary.txt`           | Texte | Analyse COMPLÈTE                   | Rapport synthétique contenant : statistiques globales, qualité d'alignement, analyse des paires, distribution par chromosome, contenu GC.|
 | `unmapped.fasta`        | FASTA | Analyse COMPLÈTE, Extraction FASTA | Séquences ADN des reads n'ayant pas pu être alignés (FLAG 4)                 |
 | `partiallyMapped.fasta` | FASTA | Analyse COMPLÈTE, Extraction FASTA | Séquences alignées mais présentant des indels, clipping ou cigar complexe    |
 | `mapped.fasta`          | FASTA | Extraction FASTA (optionnel)       | Séquences parfaitement alignées (sans mutations apparentes)                  |
