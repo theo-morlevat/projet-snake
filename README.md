@@ -1,23 +1,53 @@
-Fichier README 
+#Fichier README 
 
-Nom du projet : Projet Snake / Analyse de fichiers SAM 
+Nom du projet : Projet Snake / Analyseur automatisé de fichiers SAM 
 
 Autheur: Charlotte Pariente et Théo Morlevat 
-mettre les mails
+theom1907@gmail.com
+charlotte.pariente@gmail.com 
 
-Description :  
+## Vue d'ensemble :  
 
-Le projet Snake à pour objectif de permettre l’analyse d’un fichier SAM(Séquences Alignées Mappées) et d’obtenir les résultats en un résumé. Il permet d’obtenir différentes informations mais aussi d’extraire les séquences qui seraient mal alignées. Ces informations peuvent portent sur différents indicateurs du fichier SAM (FLAG, CIGAR, RNAME...), les fréquences des reads selon certains indicateurs et l’obtention de tableaux résumant les données. 
+Le projet Snake à pour objectif de permettre l’analyse d’un fichier SAM(Séquences Alignées Mappées) et d’obtenir les résultats en un résumé, dans un environnement de laboratoire. Il a été pensé de sorte à pouvoir travailler sur les dossiers biologiques (fichier SAM) à distance. Cela permet de stocker les scripts dans un dossier séparé des données évitant de polluer les données. Ce script se veut utilisable et compréhensible pour des biologistes.
 
-Prérequis : 
+### caractéristiques
+- **Analyse complète** :        Statistiques globales, qualité de l'alignement, analyse des paires de lectures
+- **Parsing robuste** :         Décodage des champs CIGAR et FLAG conformes aux spécifications SAM officielles
+- **Extraction de séquences** : Génération automatique de fichiers FASTA pour les reads non mappés et partiellement alignés
+- **Architecture modulaire** :  Séparation stricte entre code source et données expérimentales
+- **interactif** :              Interface conviviale adaptée aux biologistes non informaticiens 
+
+## Architecture du système
+
+Le système repose sur deux scripts, un script bash et un script python, situés dans un **dossier centralisé** :
+
+| Composant            | Type     | Rôle                                                                                 |
+|----------------------|----------|--------------------------------------------------------------------------------------|
+| `analyse_sam.py`     | Python 3 | Moteur d'analyse : calculs statistiques, parsing CIGAR/FLAG, génération des rapports |
+| `lanceur_bioinfo.sh` | Bash     | Interface utilisateur : interaction, gestion des permissions, exécution sécurisée    |
+
+### Arborescence type
+
+/racine/
+├── bio-info/                      # Dossier des scripts (Admin)
+│   ├── analyse_sam.py
+│   ├── lanceur_bioinfo.sh
+│   └── README.md
+│
+└── home/user/data/                # Dossier du biologiste (Utilisateur)
+    ├── experience_1.sam
+    └── (Fichiers de sortie générés ici)
+
+**Principe fondamental** : Les scripts restent dans `bio-info/` et ne sont jamais copiés de façon permanente dans les dossiers de données. Une copie temporaire du script python est créée pendant l'exécution dans le fichier contenant le fichier sam. La localisation d'exécution des commandes est déplacé dans le même fichier afin de lancer le script python copié sur les données, puis il supprimée à la fin de l'exécution.
+
+## Prérequis
 
 - bash   
 
 - Python 3.x 
 
  
-
-Installation : 
+## Installation
 
 Télécharger le fichier Python script.py et le fichier script.sh à partir de git. 
 
