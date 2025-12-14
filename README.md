@@ -2,7 +2,7 @@
 
 Nom du projet : Projet Snake / Analyseur automatisé de fichiers SAM 
 
-## Auteur et contexte académique
+## Auteurs et contexte académique
 
 **Développeurs** : Marie-Charlotte PARIENTE & Théo MORLEVAT
 **Cadre académique** : Projet Système Bio-Info - 2025-2026 - HAI724I  
