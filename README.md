@@ -280,23 +280,23 @@ To ensure a strict separation between source code and data, the Bash script foll
 - **Génération FASTA** : Extraction of the QNAME and sequences based on the selected options
 - **analyze_mapping** : Analyzes the distribution of reads mapped onto reference chromosomes
 - **analyze_mapq** : Classify the readings into three categories and evaluate the quality scores of the reading mapping.
-- **analyze_pairs** : Analyse les reads "paired-end" pour identifier les configurations de mapping spécifiques
-- **calculate_GC** : Calcule le pourcentage global de contenu GC sur l'ensemble des séquences lues
-- **write_summary** : Rédige un rapport d'analyse complet dans un fichier texte
+- **analyze_pairs** : Analyze the "paired-end" reads to identify specific mapping configurations
+- **calculate_GC** : Calculate the overall percentage of GC content across all sequences read
+- **write_summary** : Write a complete analysis report in a text file
 
 ---
 
-## Licence
+## License
 
-Ce projet est distribué sous licence **libre de droit copyleft**. Vous êtes autorisé à :
+This project is distributed under a **copyleft-free** license. You are authorized to :
 
-- Utiliser le code à des fins académiques et de recherche
-- Modifier le code pour adapter à vos besoins
-- Redistribuer le code modifié, à condition de mentionner les modifications
+- Use the code for academic and research purposes
+- Modify the code to suit your needs
+- Redistribute the modified code, provided that the modifications are mentioned
 
-**Obligations** : Toute redistribution doit inclure cette mention de licence et le nom du ou des auteurs originels.
+**Obligations** : Any redistribution must include this license notice and the name(s) of the original author(s).
 
 ---
 
-**Dernière mise à jour** : Décembre 2025  
-**Version du LISEZ-MOI** : 1.0
+**Last update** : Décember 2025  
+**README Version** : 1.0
