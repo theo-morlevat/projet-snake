@@ -525,7 +525,7 @@ if __name__ == "__main__":
     # --- CIGAR ---
     if mode in ["cigar", "full"]:
         print("Analyzing CIGAR...")
-        dico_statsCigar, _ = analyze_cigar(dico_sam)
+        _, dico_statsCigar, _ = analyze_cigar(dico_sam)
         if mode == "cigar":
             print("\nCIGAR results :")
             for letter, number in dico_statsCigar.items():
@@ -551,7 +551,7 @@ if __name__ == "__main__":
 
     # --- RAPPORT ---
     if mode == "full":
-        print("Writing the complete report 'summary.txt'...")
+        print("Writing the complete report...")
         write_summary(dico_nbReadInCat, total_reads, dico_statsCigar, dico_readsPerChr, dico_posPerChr, dico_flagCount, mapq_counts, mapq_avg, gc_global, stats_pairs)
-        print("Success! Check 'summary.txt")
+        print("Success! Check 'summary.txt'")
         print("ദി(˵•̀ᴗ-˵)✧")
