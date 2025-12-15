@@ -23,7 +23,7 @@ Le projet Snake a pour objectif de faciliter l'analyse de fichiers d'alignement 
 - **Analyse complète** : Statistiques globales, qualité de l'alignement, analyse des paires de lectures.
 - **Parsing robuste** : Décodage des champs CIGAR et FLAG conformes aux spécifications SAM officielles.
 - **Extraction de séquences** : Génération automatique de fichiers au format FASTA (séparation des reads mappés, non mappés et partiellement alignés).
-- **Architecture modulaire** : Séparation stricte entre code source et données expérimentales
+- **Architecture modulaire** : Séparation stricte entre code source et données expérimentales.
 - **Interaction utilisateur** : Options interactives adaptées aux biologistes sans compétences informatiques avancées.
 
 **Note** : Les auteurs ont choisi de commenter abondamment leur code en français, afin de le rendre accessible aux biologistes francophones. En parallèle, les scripts utilisent des noms de variables explicites et des docstrings (Python) en anglais, facilitant ainsi la compréhension et l’utilisation par la communauté scientifique internationale.
