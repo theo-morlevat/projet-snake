@@ -279,7 +279,7 @@ Pour garantir une séparation stricte entre code source et données, le script B
 - **categorize_reads** : Classe les reads en catégories (alignées, non alignées, partiellement alignées)
 - **Génération FASTA** : Extraction du QNAME et des séquences en fonction des options choisies
 - **analyze_mapping** : Analyse la distribution des reads cartographiées sur les chromosomes de référence
-- **analyze_mapq** : Classe les reads en trois catégories, évalue les scores de qualité de mapping des lectures
+- **analyze_mapq** : Classe les reads en trois catégories et évalue les scores de qualité de mapping des lectures
 - **analyze_pairs** : Analyse les reads "paired-end" pour identifier les configurations de mapping spécifiques
 - **calculate_GC** : Calcule le pourcentage global de contenu GC sur l'ensemble des séquences lues
 - **write_summary** : Rédige un rapport d'analyse complet dans un fichier texte
