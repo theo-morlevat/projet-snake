@@ -51,7 +51,7 @@ then
             read mapped # on stock la réponse dans mapped
             if [[ $mapped == "mapped" ]] || [[ $mapped == "partiallyMapped" ]] || [[ $mapped == "unmapped" ]] || [[ $mapped ==  "all" ]];# on verifie que les données entrées sont correct
             then
-              parameter+="$mapped" # on ajoute l'information dans param
+              parameter+=" ""$mapped" # on ajoute l'information dans param
               echo "Analysis in progress..." # on affiche que l'analyse est en cours
               python3 analyze_sam2.py $2 $parameter
               echo -e "Analysis successfully completed" # Une fois l'analyse fini on affiche un message de validation
