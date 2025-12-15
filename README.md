@@ -252,5 +252,17 @@ Pour garantir une séparation stricte entre code source et données, le script B
 
 ---
 
+## 📜 Licence
+
+Ce projet est distribué sous licence **libre de droit copyleft**. Vous êtes autorisé à :
+
+- Utiliser le code à des fins académiques et de recherche
+- Modifier le code pour adapter à vos besoins
+- Redistribuer le code modifié, à condition de mentionner les modifications
+
+**Obligations** : Toute redistribution doit inclure cette mention de licence et le nom du ou des auteurs originels.
+
+---
+
 **Dernière mise à jour** : Décembre 2025  
 **Version du README** : 1.0
