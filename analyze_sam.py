@@ -539,7 +539,27 @@ if __name__ == "__main__":
         gc_global = calculate_GC(dico_sam)
         if mode == "mapping":
             print("\nGC Content: {:.2f}%".format(gc_global))
+            print("\n--- Mapping Quality (MAPQ) ---\n")
             print("Average MAPQ: {:.2f}".format(mapq_avg))
+            mapq_order = ["0 (Ambiguous/Unmapped)", "1-29 (Low Confidence)", "30+ (High Confidence)"]
+            for label in mapq_order:
+                count = mapq_counts.get(label, 0)
+                perc = (count * 100.0 / total_reads) if total_reads > 0 else 0.0
+                print("  {}: {} ({:.2f}%)\n".format(label, count, perc))
+            print("\n--- Chromosome Distribution ---\n")
+            for chrom in dico_readsPerChr:
+                count = dico_readsPerChr[chrom]
+                print("Chromosome {} : {} reads\n".format(chrom, count))
+            for chrom, positions in dico_posPerChr.items():
+                if positions:
+                    min_pos = min(positions)
+                    max_pos = max(positions)
+                    mean_pos = sum(positions) / len(positions)
+                    variance = sum((pos - mean_pos) ** 2 for pos in positions) / len(positions)
+                    sd_pos = math.sqrt(variance)
+                    print("Chromosome {} : positions min={} max={} mean={:.2f} sd={:.2f}\n".format(chrom, min_pos, max_pos, mean_pos, sd_pos))
+                else:
+                    print("Chromosome {} : no mapped reads\n".format(chrom))
 
     # --- FASTA & PAIRES ---
     if mode in ["fasta", "full"]:
