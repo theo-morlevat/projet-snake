@@ -28,7 +28,7 @@ if [ -z "$2" ] || [ ! -e "$2" ] || [ ! -f "$2" ] || [[ ! -s "$2" ]] || [ $lastex
         [ ! -e "$2" ] &&  error+="Error: $2 is not in the directory.\n" #on affiche alors un message en lien avec l'erreur
         [ ! -f "$2" ] &&  error+="Error: $2 is not a regular file.\n"
         [ ! -s "$2" ] &&  error+="Error: $2 is empty.\n"
-        [[ $lastextension != sam ]] && error+="Error: $2 is not a sam file."
+        [[ $lastextension != sam ]] && error+="Error: $2 is not a sam fle."
         echo -e "$error" #On affiche les différents erreurs liées à l'exécution de la commande.
         exit 1 #Si il y a une erreur alors le programme s'arrête
 else
@@ -41,13 +41,13 @@ read parameter # l'utilisateur entre la valeur dans la console, la valeur est st
 
 if [[ $parameter == "full" ]] || [[ $parameter == "cigar" ]] || [[ $parameter == "mapping" ]] || [[ $parameter ==  "fasta" ]]; # on verifie que les données entrées sont correct
 then
-          if [[ $parameter == "cigar" ]] || [[ $parameter == "mapping" ]];
+          if [[ $parameter == "cigar" ]] || [[ $parameter == "mapping" ]]; # le cigar et le mapping se fait sur tous les reads
           then
             echo "Analysis in progress..."
             python3 analyze_sam2.py $2 $parameter
             echo -e "Analysis successfully completed"
           else
-            echo "You want to work on : 'mapped', 'partiallyMapped', 'unmapped', 'all'? " # on demande sur quel type de reads on travaille
+            echo "You want to work on : 'mapped', 'partiallyMapped', 'unmapped', 'all'? " # Alors le fasta et toutes les possibilités se font sur une selection de reads
             read mapped # on stock la réponse dans mapped
             if [[ $mapped == "mapped" ]] || [[ $mapped == "partiallyMapped" ]] || [[ $mapped == "unmapped" ]] || [[ $mapped ==  "all" ]];# on verifie que les données entrées sont correct
             then
