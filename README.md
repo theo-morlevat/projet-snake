@@ -294,9 +294,9 @@ This project is distributed under a **copyleft-free** license. You are authorize
 - Modify the code to suit your needs
 - Redistribute the modified code, provided that the modifications are mentioned
 
-**Obligations** : Any redistribution must include this license notice and the name(s) of the original author(s).
+**Obligations** : Any redistribution must include this license notice and the names of the original authors.
 
 ---
 
-**Last update** : Décember 2025  
+**Last update** : December 2025  
 **README Version** : 1.0
