@@ -1,13 +1,13 @@
-## Fichier LISEZ-MOI
+## README FILE
 
-Nom du projet : Projet Snake / Analyseur automatisé de fichiers SAM
+Project name : Snake Project / Automatised analyser of SAM file
 
-## Auteurs et contexte académique
+## Autors and academic context
 
-**Développeur** : Marie-Charlotte PARIENTE & Théo MORLEVAT  
-**Cadre académique** : Projet Système Bio-Info - 2025-2026 - HAI724I  
-**Établissement** : Faculté des Sciences - Université de Montpellier  
-**Spécialisation** : Analyse de données de séquençage paired-end
+**Developers** : Marie-Charlotte PARIENTE & Théo MORLEVAT  
+**Academic framework** : System project Bio-Info - 2025-2026 - HAI724I  
+**Establishment** : Faculté des Sciences - Université de Montpellier  
+**Specialization** : Paired-end sequencing data analysis
 
 ## Contacts :
 - theo.morlevat@etu.umontpellier.fr
@@ -15,18 +15,18 @@ Nom du projet : Projet Snake / Analyseur automatisé de fichiers SAM
 
 ---
 
-## Vue d'ensemble :
+## Global view :
 
-Le projet Snake a pour objectif de faciliter l'analyse de fichiers d'alignement de séquences et de générer un résumé des résultats exploitable en laboratoire. Il a été conçu pour permettre le traitement des fichiers **SAM (Sequence Alignment/Map)** à distance, offrant ainsi la possibilité de séparer les outils informatiques des données biologiques et de garantir qu’aucun script ne pollue les dossiers d’expérimentation. Ces scripts ont été pensés pour rester accessibles et compréhensibles par des biologistes, sans nécessiter de compétences avancées en programmation.
+The Snake project aims to facilitate sequence alignment file analysis and generate a summary of the results usable in the laboratory. It was designed to allow the processing of long-range **SAM (Sequence Alignment/Map)** files, thus offering the possibility of separating computer tools from biological data and to ensure that no scripts pollute the experimental files. These scripts were designed to remain accessible and understandable to biologists, without requiring advanced programming skills.
 
-### Caractéristiques
-- **Analyse complète** : Statistiques globales, qualité de l'alignement, analyse des paires de lectures.
-- **Parsing robuste** : Décodage des champs CIGAR et FLAG conformes aux spécifications SAM officielles.
-- **Extraction de séquences** : Génération automatique de fichiers au format FASTA (séparation des reads mappés, non mappés et partiellement alignés).
-- **Architecture modulaire** : Séparation stricte entre code source et données expérimentales
-- **Interaction utilisateur** : Options interactives adaptées aux biologistes sans compétences informatiques avancées.
+### Features
+- **Complete analysis** : Overall statistics, alignment quality, reading pair analysis.
+- **Robust parsing** : Decoding of CIGAR and FLAG fields in accordance with official SAM specifications.
+- **Sequence extraction** : Automatic generation of files in FASTA format (separation of mapped, unmapped and partially aligned reads).
+- **Modular architecture** : Strict separation between source code and experimental data.
+- **User interaction** : Interactive options suitable for biologists without advanced computer skills.
 
-**Note** : Les auteurs ont choisi de commenter abondamment leur code en français, afin de le rendre accessible aux biologistes francophones. En parallèle, les scripts utilisent des noms de variables explicites et des docstrings (Python) en anglais, facilitant ainsi la compréhension et l’utilisation par la communauté scientifique internationale.
+**Note** : The authors chose to comment their code extensively in French to make it accessible to French-speaking biologists. In addition, the scripts use explicit variable names and docstrings (Python) in English, thus facilitating understanding and use by the international scientific community.
 
 ---
 
