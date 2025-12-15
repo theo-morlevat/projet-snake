@@ -24,11 +24,11 @@ lastextension="${2##*.}" #On stock la dernière extension du nom du fichier dans
 
 
 if [ -z "$2" ] || [ ! -e "$2" ] || [ ! -f "$2" ] || [[ ! -s "$2" ]] || [ $lastextension != sam ]; then #On vérifie s'il n'y a pas d'érreur du à: un argument manquant, un fichier absent, un argument ne correspondant pas à un fichier régulier, un fichier vide ou n'ayant pas l'extension .sam.
-        [ -z "$2" ]   &&  error+="Error: nom de fichier manquant.\n"  # && Et un opérateur permettant de lancer une commande que si la commande précédante s'exécute
-        [ ! -e "$2" ] &&  error+="Error: $2 n'est pas présent dans le dossier.\n" #on affiche alors un message en lien avec l'erreur
-        [ ! -f "$2" ] &&  error+="Error: $2 n'est pas un fichier régulier.\n"
-        [ ! -s "$2" ] &&  error+="Error: $2 est vide.\n"
-        [[ $lastextension != sam ]] && error+="Error: $2 n'est pas un fichier sam."
+        [ -z "$2" ]   &&  error+="Error: missing file name.\n"  # && Et un opérateur permettant de lancer une commande que si la commande précédante s'exécute
+        [ ! -e "$2" ] &&  error+="Error: $2 is not in the directory.\n" #on affiche alors un message en lien avec l'erreur
+        [ ! -f "$2" ] &&  error+="Error: $2 is not a regular file.\n"
+        [ ! -s "$2" ] &&  error+="Error: $2 is empty.\n"
+        [[ $lastextension != sam ]] && error+="Error: $2 is not a sam file."
         echo -e "$error" #On affiche les différents erreurs liées à l'exécution de la commande.
         exit 1 #Si il y a une erreur alors le programme s'arrête
 else
