@@ -180,9 +180,9 @@ Once the script is launched, you will be prompted to choose the type of analysis
 ```
 Verifications completed
 This script could work on all data or on specifics needs. You want to work on : 'full', 'cigar', 'mapping', 'fasta'
-full (donnée entrée dans la console)
+full (data entered in the console)
 You want to work on : 'mapped', 'partiallyMapped', 'unmapped', 'all'?
-all (donnée entrée dans la console)
+all (data entered in the console)
 Analysis in progress...
 --- Analysis begins (Mode: full) ---
 Reading SAM file...
@@ -277,7 +277,7 @@ To ensure a strict separation between source code and data, the Bash script foll
 - **flag_decoding** : Decodes the FLAGs bit by bit into a dictionary of booleans
 - **analyze_cigar** : Analyzes the CIGARs, tallies the databases by type of operation and produces overall statistics on all aligned readings
 - **categorize_reads** : Classify the reads into categories (aligned, unaligned, partially aligned)
-- **Génération FASTA** : Extraction of the QNAME and sequences based on the selected options
+- **FASTA Generation** : Extraction of the QNAME and sequences based on the selected options
 - **analyze_mapping** : Analyzes the distribution of reads mapped onto reference chromosomes
 - **analyze_mapq** : Classify the readings into three categories and evaluate the quality scores of the reading mapping.
 - **analyze_pairs** : Analyze the "paired-end" reads to identify specific mapping configurations
