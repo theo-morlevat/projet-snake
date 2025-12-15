@@ -1,30 +1,32 @@
-# Fichier README 
+## Fichier LISEZ-MOI
 
-Nom du projet : Projet Snake / Analyseur automatisé de fichiers SAM 
+Nom du projet : Projet Snake / Analyseur automatisé de fichiers SAM
 
 ## Auteurs et contexte académique
 
-**Développeurs** : Marie-Charlotte PARIENTE & Théo MORLEVAT<br/>
+**Développeur** : Marie-Charlotte PARIENTE & Théo MORLEVAT  
 **Cadre académique** : Projet Système Bio-Info - 2025-2026 - HAI724I  
 **Établissement** : Faculté des Sciences - Université de Montpellier  
 **Spécialisation** : Analyse de données de séquençage paired-end
 
-## Contact :
+## Contacts :
 - theo.morlevat@etu.umontpellier.fr
 - marie-charlotte.pariente@etu.umontpellier.fr
 
 ---
 
-## Vue d'ensemble :  
+## Vue d'ensemble :
 
-Le projet Snake à pour objectif de permettre l’analyse d’un fichier SAM(Séquences Alignées Mappées) et d’obtenir les résultats en un résumé, dans un environnement de laboratoire. Il a été pensé de sorte à pouvoir travailler sur les dossiers biologiques (fichier SAM) à distance. Cela permet de stocker les scripts dans un dossier séparé des données évitant de polluer les données. Ce script se veut utilisable et compréhensible pour des biologistes.
+Le projet Snake a pour objectif de faciliter l'analyse de fichiers d'alignement de séquences et de générer un résumé des résultats exploitable en laboratoire. Il a été conçu pour permettre le traitement des fichiers **SAM (Sequence Alignment/Map)** à distance, offrant ainsi la possibilité de séparer les outils informatiques des données biologiques et de garantir qu’aucun script ne pollue les dossiers d’expérimentation. Ces scripts ont été pensés pour rester accessibles et compréhensibles par des biologistes, sans nécessiter de compétences avancées en programmation.
 
 ### Caractéristiques
-- **Analyse complète** :        Statistiques globales, qualité de l'alignement, analyse des paires de lectures
-- **Parsing robuste** :         Décodage des champs CIGAR et FLAG conformes aux spécifications SAM officielles
-- **Extraction de séquences** : Génération automatique de fichiers FASTA pour les reads non mappés et partiellement alignés
-- **Architecture modulaire** :  Séparation stricte entre code source et données expérimentales
-- **interactif** :              Interface conviviale adaptée aux biologistes non informaticiens 
+- **Analyse complète** : Statistiques globales, qualité de l'alignement, analyse des paires de lectures.
+- **Parsing robuste** : Décodage des champs CIGAR et FLAG conformes aux spécifications SAM officielles.
+- **Extraction de séquences** : Génération automatique de fichiers au format FASTA (séparation des reads mappés, non mappés et partiellement alignés).
+- **Architecture modulaire** : Séparation stricte entre code source et données expérimentales
+- **Interaction utilisateur** : Options interactives adaptées aux biologistes sans compétences informatiques avancées.
+
+**Note** : Les auteurs ont choisi de commenter abondamment leur code en français, afin de le rendre accessible aux biologistes francophones. En parallèle, les scripts utilisent des noms de variables explicites et des docstrings (Python) en anglais, facilitant ainsi la compréhension et l’utilisation par la communauté scientifique internationale.
 
 ---
 
@@ -35,21 +37,23 @@ Le système repose sur deux scripts, un script bash et un script python, situés
 | Composant            | Type     | Rôle                                                                                 |
 |----------------------|----------|--------------------------------------------------------------------------------------|
 | `analyse_sam.py`     | Python 3 | Moteur d'analyse : calculs statistiques, parsing CIGAR/FLAG, génération des rapports |
-| `lancher_bioinfo.sh` | Bash     | Interface utilisateur : interaction, gestion des permissions, exécution sécurisée    |
+| `launcher_bioinfo.sh` | Bash     | Interface utilisateur : interaction, gestion des permissions, exécution sécurisée    |
 
 ### Arborescence type
-
-/racine/<br/>
-├── bio-info/                      # Dossier des scripts (Admin)<br/>
-│   ├── analyse_sam.py<br/>
-│   ├── lancher_bioinfo.sh<br/>
-│   └── README.md<br/>
-│<br/>
-└── home/user/data/                # Dossier du biologiste (Utilisateur)<br/>
-    ├── experience_1.sam<br/>
-    └── (Fichiers de sortie générés ici)<br/>
-
-**Principe fondamental** : Les scripts restent dans `bio-info/` et ne sont jamais copiés de façon permanente dans les dossiers de données. Une copie temporaire du script python est créée pendant l'exécution dans le fichier contenant le fichier sam. La localisation d'exécution des commandes est déplacé dans le même fichier afin de lancer le script python copié sur les données, puis le script python sera supprimé à la fin de l'exécution.
+```
+/racine/
+├── bio-info/                      # Dossier des scripts (Admin)
+│   ├── analyse_sam.py
+│   ├── launcher_bioinfo.sh
+│   ├── LISEZ-MOI.md
+│   └── README.md
+│
+└── home/user/data/                # Dossier du biologiste (Utilisateur)
+    ├── experience_1.sam
+    └── (Fichiers de sortie générés ici)
+```
+**Principe fondamental** : Les scripts restent dans `bio-info/` et ne sont jamais copiés de façon permanente dans les dossiers de données.
+Lors de l’exécution, une copie temporaire du script Python est créée dans le même répertoire que le fichier SAM à analyser. Les commandes sont alors exécutées dans ce répertoire, garantissant que le script agit directement sur les données locales. Une fois l’exécution terminée, la copie temporaire du script est automatiquement supprimée.
 
 ---
 
@@ -84,7 +88,7 @@ Le système repose sur deux scripts, un script bash et un script python, situés
 ## Installation
 
 ### Téléchargement des scripts
-Télécharger le fichier Python analyse_sam.py et le fichier lanceur_bioinfo.sh à partir de git. 
+Télécharger le fichier Python analyse_sam.py et le fichier launcher_bioinfo.sh à partir de git.
 
 ```
 https://github.com/theo-morlevat/projet-snake.git
@@ -95,7 +99,7 @@ Il est recommandé de placer ces scripts dans un dossier (exemple : bio-info) do
 #### Rendre le script Bash exécutable
 
 ```bash
-chmod +x lancher_bioinfo.sh
+chmod +x launcher_bioinfo.sh
 ```
 
 **Note** : Le script Python n'a pas besoin d'être exécutable, il est appelé via `python3` par le script Bash.
@@ -107,7 +111,7 @@ chmod +x lancher_bioinfo.sh
 ### Syntaxe
 
 ```bash
-/chemin/vers/bio-info/lancher_bioinfo.sh <DOSSIER_DONNEES> <FICHIER_SAM>
+/chemin/vers/bio-info/launcher_bioinfo.sh <DOSSIER_DONNEES> <FICHIER_SAM>
 ```
 ### Arguments
 
@@ -121,12 +125,12 @@ chmod +x lancher_bioinfo.sh
 - En partant du principe que vous vous trouvez dans votre session ~
 
 ```bash
-~/bio-info/lanceur_bioinfo.sh ~/mes_experiences/exp_1 mon_alignement.sam
+~/bio-info/launcher_bioinfo.sh ~/mes_experiences/exp_1 mon_alignement.sam
 ```
-- À partir du moment que vous connaissez les chemins des scripts et du fichier sam à analyser, vous pouvez exécuter cette commande n'importe où.
+- À partir du moment où vous connaissez les chemins des scripts et du fichier sam à analyser, vous pouvez exécuter cette commande n'importe où.
 - Les résultats seront générés dans ~/mes_experiences/exp_1
 
-### Paramètres en argument de lanceur_bioinfo.sh
+### Paramètres en argument de launcher_bioinfo.sh
 
 ```
 -h ou –-help : paramètre expliquant commant utiliser le script et les paramètres possibles.
@@ -140,54 +144,57 @@ chmod +x lancher_bioinfo.sh
 
 ## Menu interactif
 
-Une fois le script lancé, vous serez invité à choisir le type d'analyse via un menu numéroté :
+Une fois le script lancé, vous serez invité à choisir le type d'analyse :
 
 ### Options disponibles
 
 **1. Analyse COMPLÈTE**
 - Rapport synthétique complet (`summary.txt`)
 - Calcul du pourcentage GC global
-- Analyse des paires de lectures (R1/R2)
-- Génération de fichiers FASTA pour les reads non mappés
-- Statistiques par chromosome/contig
-- **Durée** : Modérée (proportionnelle à la taille du fichier)
+- Analyse des paires de lectures (R1/R2), FLAG, CIGAR, distribution chromosomique et MAPQ
+- Génération de fichier(s) `.fasta` en fonction des besoins de l'utilisateur
+- **Durée** : Modérée
 
 **2. Analyse CIGAR**
 - Extraction et décodage des chaînes CIGAR
-- Pourcentages d'insertions, délétions et clipping
+- Affichage directe des résultats dans le terminal (aucun fichier de sortie)
 - **Durée** : Rapide
-- **Cas d'usage** : Évaluation rapide de la qualité des alignements
 
 **3. Analyse MAPPING**
-- Qualité de l'alignement (MAPQ)
-- Couverture par chromosome
-- Contenu GC des reads mappés
-- Distribution des longueurs de reads
+- Qualité de l'alignement (MAPQ), contenu %GC et couverture par chromosome
+- Affichage directe des résultats dans le terminal (aucun fichier de sortie)
 - **Durée** : Rapide
 
 **4. Extraction FASTA**
-- Génération des fichiers `.fasta` uniquement
-- Reads non mappés (FLAG = 4)
-- Reads partiellement alignés (avec indels ou clipping)
-- Reads parfaitement alignés (optionnel)
-- **Durée** : Très rapide
+- Génération de fichier(s) `.fasta` en fonction des besoins de l'utilisateur
+- 'unmapped' : Reads non mappés (FLAG = 4)
+- 'partiallyMapped' : Reads partiellement alignés (avec indels ou clipping)
+- 'mapped' : Reads parfaitement alignés
+- 'all' : Génération des 3 fichiers cités ci-dessus
+- **Durée** : Rapide à modérée
+
+**Note** : Les durées d'exécutions sont proportionnelles à la taille du fichier d'entrée
 
 ### Exemple d'interaction
 
 ```
+Verifications completed
 This script could work on all data or on specifics needs. You want to work on : 'full', 'cigar', 'mapping', 'fasta'
 full (donnée entrée dans la console)
-You want to work on : 'mapped-reads', 'partially-mapped-reads', 'unmapped-reads', 'all'
+You want to work on : 'mapped', 'partiallyMapped', 'unmapped', 'all'?
 all (donnée entrée dans la console)
 Analysis in progress...
+--- Analysis begins (Mode: full) ---
+Reading SAM file...
+Analyzing CIGAR...
+Mapping Analysis (Quality, GC content, Chromosomes)...
+FASTA file generation for : ['all'] ...
+Writing the complete report...
+Success! Check 'summary.txt'
+ദി(˵•̀ᴗ-˵)✧
 Analysis successfully completed
-Files have been generated in the selected path.
 ```
-
  ---
-
-## Fichiers de sortie
-
 Tous les résultats sont générés **directement dans le dossier de données** fourni en argument.
 Ce script  la possibilité de créer 4 fichiers différents.
 
@@ -196,38 +203,60 @@ Ce script  la possibilité de créer 4 fichiers différents.
 | `summary.txt`           | Texte | Analyse COMPLÈTE                   | Rapport synthétique contenant : statistiques globales, qualité d'alignement, analyse des paires, distribution par chromosome, contenu GC.|
 | `unmapped.fasta`        | FASTA | Analyse COMPLÈTE, Extraction FASTA | Séquences ADN des reads n'ayant pas pu être alignés (FLAG 4)                 |
 | `partiallyMapped.fasta` | FASTA | Analyse COMPLÈTE, Extraction FASTA | Séquences alignées mais présentant des indels, clipping ou cigar complexe    |
-| `mapped.fasta`          | FASTA | Extraction FASTA (optionnel)       | Séquences parfaitement alignées (sans mutations apparentes)                  |
+| `mapped.fasta`          | FASTA | Analyse COMPLÈTE, Extraction FASTA | Séquences parfaitement alignées (sans mutations apparentes)                  |
 
 ### Format du fichier `summary.txt`
 
 ```
-=== SAM Analysis Report ===
-File: mon_alignement.sam
-Timestamp: 2025-12-13 18:45:23
+=== SAM ANALYSIS REPORT ===
 
---- Global Statistics ---
-Total reads: 1,234,567
-Mapped reads: 1,210,345 (98.15%)
-Unmapped reads: 24,222 (1.85%)
+Total reads analyzed: 2256936
+Global GC Content: 22.43%
 
---- Alignment Quality ---
-Mean MAPQ: 42.3
-Median MAPQ: 45
+--- Paired-End Analysis ---
+Pairs with 1 Full Mapped & 1 Unmapped: 9
+Pairs with 1 Full Mapped & 1 Partial:  156
+Pairs fully mapped (Both Perfect):     439
+
+--- Reads per category ---
+Number of reads mapped : 119220 (5.28%)
+Number of reads partiallyMapped : 87494 (3.88%)
+Number of reads unmapped : 2137716 (94.72%)
+
+--- FLAG statistics ---
+Number of reads per FLAG value:
+FLAG 65 : 166 reads (0.01%)
+FLAG 69 : 154 reads (0.01%)
+FLAG 73 : 3098 reads (0.14%)
+FLAG 77 : 1066875 reads (47.27%)
 ...
 
---- Pairwise Analysis ---
-Properly paired: 1,195,234 (96.82%)
-Singleton: 15,111 (1.22%)
-...
+--- Global CIGAR operations ---
+Match (M): 37.91%
+Insertion (I): 0.0%
+Deletion (D): 0.0%
+Skipped region (N): 0.0%
+Soft clipping (S): 41.22%
+Hard clipping (H): 20.85%
+Padding (P): 0.0%
+Sequence match (=): 0.0%
+Sequence mismatch (X): 0.0%
 
---- Per-Chromosome Coverage ---
-chr1: 45,234 reads (3.89%)
-chr2: 41,567 reads (3.57%)
-...
+--- Chromosome Distribution ---
+Chromosome NC_045512.2 : 119220 reads
+
+--- Position statistics per chromosome ---
+Chromosome NC_045512.2 : positions min=7 max=29885 mean=16409.33 sd=9881.18
+
+--- Mapping Quality (MAPQ) ---
+Average MAPQ score: 3.14
+Distribution:
+  0 (Ambiguous/Unmapped): 2138292 (94.74%)
+  1-29 (Low Confidence): 389 (0.02%)
+  30+ (High Confidence): 118255 (5.24%)
 ```
-
 ---
- 
+
 ## Fonctionnement du script
 
 ### Flux d'exécution du script Bash
@@ -244,15 +273,20 @@ Pour garantir une séparation stricte entre code source et données, le script B
 
 ### Architecture du script Python
 
-- **Parsing SAM** : Lecture ligne par ligne des alignements, extraction des champs obligatoires
-- **Décodage CIGAR** : Interprétation des opérations de cigar (M, I, D, S, H, etc.)
-- **Décodage FLAG** : Analyse binaire des FLAGs SAM pour classifier les reads
-- **Statistiques** : Agrégation par chromosome, calcul des moyennes et percentiles
-- **Génération FASTA** : Extraction des séquences (champ 10) en fonction de la classification
+- **read_sam** : Analyse le fichier SAM et organise les lectures par leur nom de requête (QNAME).
+- **flag_decoding** : Décode les FLAGs bit à bit en un dictionnaire de booléens
+- **analyze_cigar** : Analyse les CIGAR, comptabilise les bases par type d’opération et produit des statistiques globales sur l’ensemble des lectures alignées
+- **categorize_reads** : Classe les reads en catégories (alignées, non alignées, partiellement alignées)
+- **Génération FASTA** : Extraction du QNAME et des séquences en fonction des options choisies
+- **analyze_mapping** : Analyse la distribution des reads cartographiées sur les chromosomes de référence
+- **analyze_mapq** : Classe les reads en trois catégories, évalue les scores de qualité de mapping des lectures
+- **analyze_pairs** : Analyse les reads "paired-end" pour identifier les configurations de mapping spécifiques
+- **calculate_GC** : Calcule le pourcentage global de contenu GC sur l'ensemble des séquences lues
+- **write_summary** : Rédige un rapport d'analyse complet dans un fichier texte
 
 ---
 
-## 📜 Licence
+## Licence
 
 Ce projet est distribué sous licence **libre de droit copyleft**. Vous êtes autorisé à :
 
@@ -265,4 +299,4 @@ Ce projet est distribué sous licence **libre de droit copyleft**. Vous êtes au
 ---
 
 **Dernière mise à jour** : Décembre 2025  
-**Version du README** : 1.0
+**Version du LISEZ-MOI** : 1.0
